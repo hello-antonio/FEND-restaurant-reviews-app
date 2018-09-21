@@ -27,9 +27,6 @@ let cacheAllAssest = [
   '/js/restaurant_info.js',
   'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
   'https://a.tile.openstreetmap.org',
-  'https://fonts.gstatic.com/s/yesevaone/v12/OpNJno4ck8vc-xYpwWWxli1VWw.woff2',
-  'https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2',
-  'https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2',
   'https://fonts.googleapis.com/css?family=Yeseva+One|Open+Sans:300,400,600,700'
 ];
 

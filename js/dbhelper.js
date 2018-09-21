@@ -11,15 +11,22 @@ class DBHelper {
   //   const port = 5500; // Change this to your server port
   //   return `http://localhost:${port}/data/restaurants.json`;
   // }
-  // Gets the API from the window.location.href since data is hosted local
-  // and this project is hosted on GitHub and there is a conflict of urls.
+  /**
+   * Config the API from the window.location.origin since data is hosted local
+   * and the project will be hosted on GitHub pages and there is a conflict of origins, I
+   * configure the development localhost to the origin only if there is port available using
+   * window.location.port this sets the port no need to configure a port here, but you can assign one,
+   * otherwise, for the production site I just setup the url to the GitHub pages site.
+   */
   static get DATABASE_URL() {
+    const production_url = `http://giovannilara.com/FEND-restaurant-reviews-app-1`;
+
     // polyfill window.location.origin EI and others :(
-    const webhost = `/FEND-restaurant-reviews-app-1/`;
     if (!window.location.origin) {
       window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
-    const url = window.location.origin;
+
+    const url = window.location.port.length > 1 ? window.location.origin : production_url;
     return `${url}/data/restaurants.json`;
   }
 
@@ -27,20 +34,6 @@ class DBHelper {
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    // using xhr
-    // let xhr = new XMLHttpRequest();
-    // xhr.open('GET', DBHelper.DATABASE_URL);
-    // xhr.onload = () => {
-    //   if (xhr.status === 200) { // Got a success response from server!
-    //     const json = JSON.parse(xhr.responseText);
-    //     const restaurants = json.restaurants;
-    //     callback(null, restaurants);
-    //   } else { // Oops!. Got an error from server.
-    //     const error = (`Request failed. Returned status of ${xhr.status}`);
-    //     callback(error, null);
-    //   }
-    // };
-    // xhr.send();
     // using fetch api
     fetch(DBHelper.DATABASE_URL, {
       mode: 'cors',
