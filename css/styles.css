@@ -168,6 +168,11 @@ nav h1 a {
   color: var(--primaryLightTextColor);
 }
 
+nav h1 a:hover,
+nav h1 a:focus{
+  color: #f9f9f9;
+}
+
 #breadcrumb {
   padding: 10px 40px 16px;
   list-style: none;
