@@ -15,10 +15,12 @@ class DBHelper {
   // and this project is hosted on GitHub and there is a conflict of urls.
   static get DATABASE_URL() {
     // polyfill window.location.origin EI and others :(
+    const regex = /\/\w+\W+(html)$/gmi;
+    // const str = `http://giovannilara.com/FEND-restaurant-reviews-app-1/restaurant.html`;
     if (!window.location.origin) {
       window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
-    const url = window.location.origin + (window.location.pathname === '/FEND-restaurant-reviews-app-1/' ? '/' + window.location.pathname : '');
+    const url = window.location.origin + (window.location.pathname === '/' ? window.location.pathname.replace(regex, '') : '');
     return `${url}/data/restaurants.json`;
   }
 
