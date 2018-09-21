@@ -7,9 +7,19 @@ class DBHelper {
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
+  // static get DATABASE_URL() {
+  //   const port = 5500; // Change this to your server port
+  //   return `http://localhost:${port}/data/restaurants.json`;
+  // }
+  // Gets the API from the window.location.href since data is hosted local
+  // and this project is hosted on GitHub and there is a conflict of urls.
   static get DATABASE_URL() {
-    const port = 5500; // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    // polyfill window.location.origin EI and others :(
+    if (!window.location.origin) {
+      window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+    }
+    const url = window.location.origin;
+    return `${url}/data/restaurants.json`;
   }
 
   /**
@@ -30,12 +40,22 @@ class DBHelper {
     //   }
     // };
     // xhr.send();
-    // using fetch
-    fetch(DBHelper.DATABASE_URL).then(function (response) {
-      return response.json();
+    // using fetch api
+    fetch(DBHelper.DATABASE_URL, {
+      mode: 'cors',
+      method: 'GET',
+      headers: {
+        'Content-Type':'application/json'
+      }
+    }).then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      const error = (`Request failed. Returned status of ${response.status}`);
+      return callback(error, null);
     }).then(function (data) {
       callback(null, data.restaurants);
-    }).catch(function(error){
+    }).catch(function (error) {
       callback(error, null);
     })
   }
