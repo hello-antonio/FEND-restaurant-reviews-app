@@ -8,7 +8,7 @@
  */
 
  // Update version
-const VERSION = 'v1';
+const VERSION = 'v2';
 
 // TODO: array of images to be cache, check the dbhelper.js for the URLs helpers and setting the paths,
 // the app uses two image dimensions one for the thumbnails and reviews info but the names are the same for // both. Note: no images included.
@@ -20,10 +20,17 @@ let cacheAllAssest = [
   '/index.html',
   '/restaurant.html',
   '/css/styles.css',
+  '/css/styles.min.css',
   '/data/restaurants.json',
   '/js/dbhelper.js',
   '/js/main.js',
-  '/js/restaurant_info.js'
+  '/js/restaurant_info.js',
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+  'https://a.tile.openstreetmap.org',
+  'https://fonts.gstatic.com/s/yesevaone/v12/OpNJno4ck8vc-xYpwWWxli1VWw.woff2',
+  'https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2',
+  'https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2',
+  'https://fonts.googleapis.com/css?family=Yeseva+One|Open+Sans:300,400,600,700'
 ];
 
 // TODO: add all images from allImages to the cacheAllAsset

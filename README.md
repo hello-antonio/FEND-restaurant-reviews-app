@@ -3,9 +3,12 @@
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 1
+## Project Overview
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+For the **Restaurant Reviews** projects:
+  - I incrementally convert a static webpage to a mobile-ready web application.
+  - In addition, I take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use.
+  - Last, I add a service worker to begin the process of creating a seamless offline experience for your users.
 
 ### Specification
 
@@ -22,8 +25,10 @@ In a terminal, check the version of Python you have: `python -V`. If you have Py
 4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
 
 ## Leaflet.js and Mapbox:
+**Note: This website demo is using Leaflet.js API. But optionally you can use Google maps or MapBox.**
 
 This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `const MAPBOX_API_KEY = '<your MAPBOX API KEY HERE>'` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
+
 
 ### Note about ES6
 

@@ -79,13 +79,8 @@ initMap = () => {
         scrollWheelZoom: false,
         attributionControl: false
       });
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: MAPBOX_API_KEY,
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets'
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(newMap);
   const mapEls = Array.from(document.getElementById('map').querySelectorAll('a'));
   for (const el of mapEls) {
@@ -152,9 +147,15 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+  const noResults = document.querySelector('.no-results');
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+      ul.append(createRestaurantHTML(restaurant));
   });
+  if(ul.childElementCount === 0) {
+    noResults.classList.remove('hidden');
+  } else {
+    noResults.classList.add('hidden');
+  }
   addMarkersToMap();
 }
 
@@ -180,11 +181,12 @@ createRestaurantHTML = (restaurant) => {
   detailsContainer.append(name);
 
   const neighborhood = document.createElement('p');
-  neighborhood.style.fontWeight = 700;
+  neighborhood.classList.add('restaurant-subheading');
   neighborhood.innerHTML = restaurant.neighborhood;
   detailsContainer.append(neighborhood);
 
   const address = document.createElement('p');
+  address.classList.add('restaurant-address');
   address.innerHTML = restaurant.address;
   detailsContainer.append(address);
 
