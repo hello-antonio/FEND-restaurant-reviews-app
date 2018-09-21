@@ -1,8 +1,13 @@
-# FEND Project 5
-#### Mobile Web Specialist Certification Course
+# FEND Project 5 : Restaurant Reviews
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
+## Project Redesign After
+![Desktop website](img/desktop.png)
+![Desktop website](img/desktop-restaurant.png)
+![Mobile website](img/mobile.png)
+![Mobile website](img/mobile2.png)
+![Mobile website](img/mobile-restaurant.png)
 ## Project Overview
 
 For the **Restaurant Reviews** projects:
