@@ -16,9 +16,9 @@ class DBHelper {
   static get DATABASE_URL() {
     // polyfill window.location.origin EI and others :(
     if (!window.location.origin) {
-      window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+      window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
-    const url = window.location.origin;
+    const url = window.location.origin + (window.location.pathname === '/FEND-restaurant-reviews-app-1/' ? '/' + window.location.pathname : '');
     return `${url}/data/restaurants.json`;
   }
 
@@ -45,7 +45,7 @@ class DBHelper {
       mode: 'cors',
       method: 'GET',
       headers: {
-        'Content-Type':'application/json'
+        'Content-Type': 'application/json'
       }
     }).then(function (response) {
       if (response.ok) {

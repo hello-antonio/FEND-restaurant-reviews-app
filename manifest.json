@@ -10,5 +10,5 @@
     "type": "image/x-icon"
   }],
   "scope": "/",
-  "start_url": "/"
+  "start_url": "/index.html"
 }
