@@ -6,7 +6,8 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 :root {
@@ -48,6 +49,7 @@ li {
 a {
   color: var(--primaryColor);
   text-decoration: none;
+  -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
@@ -114,17 +116,33 @@ section {
 /*====================== Flexbox/Layout ======================*/
 
 .flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #maincontent {
@@ -137,8 +155,12 @@ section {
   text-align: center;
   text-transform: capitalize;
   min-height: 20vh;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #footer p {
@@ -180,7 +202,8 @@ nav h1 a:focus{
   font-size: 1em;
   margin: 0;
   width: 100%;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Display list items side by side */
@@ -226,7 +249,9 @@ nav h1 a:focus{
   width: 100%;
   min-height: 10vh;
   background-color: var(--whiteColor);
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .filter-options span {
@@ -267,10 +292,12 @@ nav h1 a:focus{
   background-color: var(--whiteColor);
   text-align: left;
   overflow: hidden;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   margin: 1em 0;
   border-radius: 3px;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 #restaurants-list .restaurant-details {
@@ -290,7 +317,8 @@ nav h1 a:focus{
   margin: 0;
   max-width: 100%;
   min-width: 100%;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 #restaurants-list li h2 {
@@ -442,7 +470,8 @@ nav h1 a:focus{
   max-width: 736px;
   width: 100%;
   border-radius: 3px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
 }
 
 #reviews-list li>div {
@@ -498,7 +527,7 @@ nav h1 a:focus{
   }
 
   nav h1 a {
-    font-size: small;
+    font-size: 1.2rem;
   }
 
   #breadcrumb {
@@ -593,7 +622,9 @@ nav h1 a:focus{
     height: 50vh;
     position: relative;
     top: 0;
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 
   #breadcrumb {
@@ -602,12 +633,16 @@ nav h1 a:focus{
 
   #restaurant-container {
     width: 100%;
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 
   #reviews-container {
     width: 100%;
-    order: 3;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
   }
 
   #reviews-list li {
@@ -665,6 +700,9 @@ nav h1 a:focus{
   }
 
   #reviews-list {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
